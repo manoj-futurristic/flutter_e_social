@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:provider_practice/providers/home_provider.dart';
 import 'package:provider_practice/providers/theme_provider.dart';
-
 import '../widgets/post_card.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -13,24 +12,26 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  HomeProvider? _homeProvider;
+
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      final home = context.read<HomeProvider>();
-      home.initLoading();
+      _homeProvider!.initLoading();
     });
   }
 
   @override
   Widget build(BuildContext context) {
+    _homeProvider ??= context.read<HomeProvider>();
+
+if(_homeProvider==null){
+  
+}
+
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('E-Social'),
-        actions: [changeThemeButton],
-      ),
       body: Consumer<HomeProvider>(builder: (context, homeProvider, child) {
         return Center(
             child: homeProvider.loading
@@ -43,6 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     itemCount: 10,
                   ));
       }),
+      floatingActionButton: changeThemeButton,
     );
   }
 

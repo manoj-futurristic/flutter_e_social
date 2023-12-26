@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class HomeProvider extends ChangeNotifier {
-  bool _loading = false;
+  bool _loading = true;
 
   bool get loading => _loading;
 
@@ -9,6 +9,7 @@ class HomeProvider extends ChangeNotifier {
     _loading = loading;
     notifyListeners();
   }
+  
 
   initLoading() async {
     setLoadig(true);

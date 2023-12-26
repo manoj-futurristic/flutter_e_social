@@ -1,6 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_reaction_button/flutter_reaction_button.dart';
 
+final List<Map<String, dynamic>> dummyUsers = [
+  {
+    "user_name": 'Raj Jaiswal',
+    "profile_img": '',
+    "location": '',
+    "is_online": '',
+    "age": 21,
+    "about": ''
+  }
+];
+
 final List<Reaction<String>> reactions = [
   Reaction<String>(
     value: 'Happy',
